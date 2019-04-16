@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <center>
+        <form th:action="@{/update}" method="post">
+            ID:<input type="text" th:value="${s.id}" name="id" readonly></br>
+            Name:<input type="text" th:value="${s.name}" name="name"></br>
+            Age:<input type="text" th:value="${s.age}" name="age"></br>
+            Sex:<input type="text" th:value="${s.sex}" name="sex"></br>
+            <input type="submit" value="提交">
+        </form>
+        <a th:href="@{/index}">返回</a>
+    </center>
+</body>
+</html>

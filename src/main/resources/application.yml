@@ -1,0 +1,29 @@
+server:
+#端口号
+  port: 8080
+#jetty配置,acceptors线程只需要1-2个,selectors线程配置2-4个
+  jetty:
+    acceptors: 2
+    selectors: 4
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
+#阿里的druid
+  datasource:
+    url: jdbc:mysql://localhost:3306/student?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    hibernate:
+      ddl-auto: update
+#模板引擎
+  thymeleaf:
+    prefix: classpath:/templates/
+    check-template-location: true
+    cache: false
+    suffix: .html
+    mode: HTML5

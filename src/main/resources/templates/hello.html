@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h2><a th:href="@{/toadd}">增加</a></h2>
+    <table border="1" bgcolor="#f0ffff">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>名字</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody th:each="s : ${list}">
+        <tr>
+            <td th:text="${s.id}"></td>
+            <td th:text="${s.name}"></td>
+            <td th:text="${s.sex}"></td>
+            <td th:text="${s.age}"></td>
+            <td><a th:title="修改" th:onclick="return rec()" th:href="@{/toupdate(id=${s.id})}">修改</a>
+                <a th:title="删除" th:href="@{/delect(id=${s.id})}">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</center>
+</body>
+</html>
+<script type="text/javascript" th:include="javascript">
+    function rec() {
+        var mymessages=confirm("是否确认删除?");
+        if (mymessages==true) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+</script>
